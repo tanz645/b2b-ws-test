@@ -1,5 +1,4 @@
 const WebSocket = require('ws');
-const { v4: uuidv4 } = require('uuid');
 const SubscriberService = require('./services/subscriberService'); 
 const UtilService = require('./services/utilService'); 
 const config = require('./config');
