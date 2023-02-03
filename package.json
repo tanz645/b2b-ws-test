@@ -1,0 +1,26 @@
+{
+  "name": "b2b-ws-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ws_server.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest --testPathPattern=tests --verbose --runInBand"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "uuid": "^9.0.0",
+    "ws": "^8.12.0"
+  },
+  "devDependencies": {
+    "jest": "^29.4.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 5000000,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
+}
