@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
-const SubscriberService = require('./services/subscriberService'); 
-const UtilService = require('./services/utilService'); 
+const SubscriberService = require('./services/subscriberService');
+const UtilService = require('./services/utilService');
 const config = require('./config');
 
 const wss = new WebSocket.Server({ port: config.ws.port });
@@ -9,13 +9,13 @@ const subscriberService = new SubscriberService();
 
 wss.on('connection', (ws) => {
     console.log('client connected')
-    ws.on('message',async (msg) => {
+    ws.on('message', async (msg) => {
 
         let outboundMsg = {};
 
         try {
             const message = UtilService.parseValidJson(msg);
-            if(!message){
+            if (!message) {
                 throw "Bad formatted payload, non JSON"
             }
             console.log({
@@ -25,7 +25,7 @@ wss.on('connection', (ws) => {
                 throw "Requested method not implemented"
             }
             outboundMsg = await subscriberService.handleMethod(message.type)
-            
+
         } catch (err) {
             outboundMsg = {
                 type: "Error",
@@ -44,7 +44,7 @@ const interval = setInterval(() => {
             updatedAt: Date()
         }));
     });
-  }, 1000);
+}, 1000);
 
 wss.on('close', () => {
     console.log('ws server closed')

@@ -23,7 +23,13 @@ After installation run the tests.
 ```bash
 npm run test
 ```
-
+#### Test Cases
+- Should send heartbeat event every second
+- Should send Subscribed status after Subscribe event
+- Should send Unsubscribed status after Unsubscribe event
+- Should send Subscriber Count after CountSubscribers event
+- Should send Error type for unrecognized method
+- Should send Error type for malformed json
 ### Run Server
 
 ```bash

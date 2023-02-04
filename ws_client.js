@@ -1,11 +1,11 @@
 const WebSocket = require('ws');
 const config = require('./config');
 
-const  connectToServer = async () => {
+const connectToServer = async () => {
     const ws = new WebSocket(`${config.ws.host}:${config.ws.port}`);
     return new Promise((resolve, reject) => {
         const timer = setInterval(() => {
-            if(ws.readyState === 1) {
+            if (ws.readyState === 1) {
                 clearInterval(timer)
                 resolve(ws);
             }
@@ -42,7 +42,7 @@ const  connectToServer = async () => {
         const messageBody = JSON.parse(msg.data);
         console.log({
             messageFromServer: messageBody
-        })
+        });
     };
 
 })()

@@ -1,7 +1,7 @@
 class UtilService {
 
     static parseValidJson(data) {
-        if (!data){
+        if (!data) {
             return false;
         }
         try {

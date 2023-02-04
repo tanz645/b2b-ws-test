@@ -5,8 +5,8 @@ class SubscriberService {
     #timeoutSubscribe = 4000;
     #timeoutUnsubscribe = 8000;
 
-    validMethods = ['Subscribe','Unscubscribe','CountSubscribers'];
-    
+    validMethods = ['Subscribe', 'Unscubscribe', 'CountSubscribers'];
+
     get subscribers() {
         return this.#subscribers;
     }
@@ -17,13 +17,13 @@ class SubscriberService {
 
     handleMethod(methodName) {
         const methodHandlerMapping = {
-            'Subscribe' : this.#handleSubscribe.bind(this),
+            'Subscribe': this.#handleSubscribe.bind(this),
             'Unscubscribe': this.#handleUnsubscribe.bind(this),
             'CountSubscribers': this.#handleCountSubscibers.bind(this)
         }
         return methodHandlerMapping[methodName]()
     }
-    
+
     #handleSubscribe() {
         return new Promise(resolve => {
             setTimeout(() => {
@@ -58,12 +58,12 @@ class SubscriberService {
         })
     }
 
-    #addSubscriber(){
+    #addSubscriber() {
         this.#subscribers += 1
     }
 
-    #removeSubscriber(){
-        if(this.#subscribers > 0){
+    #removeSubscriber() {
+        if (this.#subscribers > 0) {
             this.#subscribers -= 1
         }
     }
